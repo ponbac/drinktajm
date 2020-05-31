@@ -1,3 +1,4 @@
+import 'package:drinkinggame/pages/game_page.dart';
 import 'package:drinkinggame/pages/start_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       home: StartPage(),
       routes: {
-
+        GamePage.routeName: (ctx) => GamePage(),
       },
     );
   }
