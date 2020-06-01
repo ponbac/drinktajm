@@ -1,16 +1,17 @@
+import 'package:drinkinggame/models/player.dart';
+import 'package:drinkinggame/models/session.dart';
 import 'package:drinkinggame/models/question.dart';
 import 'package:drinkinggame/resources/question_provider.dart';
+
 import 'package:flutter/material.dart';
 
 class GamePage extends StatelessWidget {
   static const routeName = '/game';
 
-  Question getRandomQuestionFromList(List<Question> questionList) {
-    return (questionList..shuffle()).first;
-  }
-
   @override
   Widget build(BuildContext context) {
+    Session session = new Session(new List<Player>(), context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Gametajm'),
@@ -22,7 +23,9 @@ class GamePage extends StatelessWidget {
           List<Widget> children;
 
           if (snapshot.hasData) {
-            Question currentQuestion = getRandomQuestionFromList(snapshot.data);
+            session.questionList = snapshot.data;
+
+            Question currentQuestion = session.currentQuestion;
 
             children = <Widget>[
               Text('${currentQuestion.category}', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40)),
