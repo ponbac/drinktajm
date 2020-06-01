@@ -2,10 +2,12 @@ import 'package:drinkinggame/models/question.dart';
 import 'package:drinkinggame/resources/question_provider.dart';
 import 'package:flutter/material.dart';
 
-import 'dart:convert';
-
 class GamePage extends StatelessWidget {
   static const routeName = '/game';
+
+  Question getRandomQuestionFromList(List<Question> questionList) {
+    return (questionList..shuffle()).first;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,13 @@ class GamePage extends StatelessWidget {
           List<Widget> children;
 
           if (snapshot.hasData) {
-            children = <Widget>[Text('Questions: ${snapshot.data.toString()}')];
+            Question currentQuestion = getRandomQuestionFromList(snapshot.data);
+
+            children = <Widget>[
+              Text('${currentQuestion.category}', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40)),
+              Text(
+                  '${currentQuestion.description}', style: TextStyle(fontSize: 20))
+            ];
           } else {
             children = <Widget>[
               SizedBox(

@@ -12,6 +12,6 @@ Future<List<Question>> getQuestions(BuildContext context) async {
       .map((questionJson) => Question.fromJson(questionJson))
       .toList();
 
-  debugPrint('Returning questions: ' + questions.toString());
+  //debugPrint('Returning questions: ' + questions.toString());
   return questions;
 }
