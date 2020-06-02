@@ -5,12 +5,24 @@ import 'package:drinkinggame/resources/question_provider.dart';
 
 import 'package:flutter/material.dart';
 
-class GamePage extends StatelessWidget {
+class GamePage extends StatefulWidget {
   static const routeName = '/game';
 
   @override
+  _GamePageState createState() => _GamePageState();
+}
+
+class _GamePageState extends State<GamePage> {
+  List<Player> playerList;
+
+  @override
   Widget build(BuildContext context) {
-    Session session = new Session(new List<Player>(), context);
+    final routeArgs =
+        ModalRoute.of(context).settings.arguments as Map<String, List<Player>>;
+
+    playerList = routeArgs['playerList'];
+
+    Session session = new Session(playerList, context);
 
     return Scaffold(
       body: FutureBuilder<List<Question>>(

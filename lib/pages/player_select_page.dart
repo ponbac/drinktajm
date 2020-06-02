@@ -1,3 +1,6 @@
+import 'package:drinkinggame/models/player.dart';
+import 'package:drinkinggame/pages/game_page.dart';
+import 'package:drinkinggame/widgets/action_button.dart';
 import 'package:drinkinggame/widgets/header_text.dart';
 import 'package:flutter/material.dart';
 
@@ -9,12 +12,41 @@ class PlayerSelect extends StatefulWidget {
 }
 
 class _PlayerSelectState extends State<PlayerSelect> {
+  final _formKey = GlobalKey<FormState>();
+
+  List<Player> playerList = new List<Player>();
+
+  void _addPlayer(String name) {
+    playerList.add(new Player(name));
+  }
+
+  void _startGame(BuildContext ctx) {
+    if (playerList.length > 0) {
+      Navigator.of(ctx)
+          .pushNamed(GamePage.routeName, arguments: {'playerList': playerList});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Column(
         children: <Widget>[
           HeaderText('VÄLJ SPELARE'),
+          SizedBox(
+            height: height * 0.65,
+            child: ListView.builder(
+                itemCount: playerList.length,
+                itemBuilder: (context, index) {
+                  return Center(
+                      child: Text(
+                    '${playerList.elementAt(index).name}',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  ));
+                }),
+          ),
           Center(
               child: Ink(
             decoration: const ShapeDecoration(
@@ -24,9 +56,72 @@ class _PlayerSelectState extends State<PlayerSelect> {
             child: IconButton(
               icon: Icon(Icons.add),
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        content: Stack(
+                          overflow: Overflow.visible,
+                          children: <Widget>[
+                            Positioned(
+                              right: -40.0,
+                              top: -40.0,
+                              child: InkResponse(
+                                onTap: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: CircleAvatar(
+                                  child: Icon(Icons.close),
+                                  backgroundColor: Colors.red,
+                                ),
+                              ),
+                            ),
+                            Form(
+                              key: _formKey,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: TextFormField(
+                                      onSaved: (String value) {
+                                        setState(() {
+                                          _addPlayer(value);
+                                          Navigator.of(context).pop();
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: RaisedButton(
+                                      child: Text("ska supa!"),
+                                      onPressed: () {
+                                        if (_formKey.currentState.validate()) {
+                                          _formKey.currentState.save();
+                                        }
+                                      },
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    });
+              },
             ),
-          ))
+          )),
+          Container(
+            height: 48,
+            margin: EdgeInsets.only(top: 15),
+            child: ActionButton(
+              buttonTitle: 'Börja spela!',
+              onPress: () => _startGame(context),
+            ),
+          )
         ],
       ),
     );

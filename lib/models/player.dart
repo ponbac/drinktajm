@@ -3,4 +3,8 @@ class Player {
   int sips;
 
   Player(this.name);
+
+  void addSips(int amount) {
+    sips += amount;
+  }
 }
