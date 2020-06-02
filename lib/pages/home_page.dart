@@ -1,6 +1,7 @@
 import 'package:drinkinggame/pages/game_page.dart';
 import 'package:drinkinggame/pages/player_select_page.dart';
 import 'package:drinkinggame/widgets/action_button.dart';
+import 'package:drinkinggame/widgets/header_text.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,19 +20,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
           child: Column(
             children: <Widget>[
-              Center(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 8.0),
-                  child: Text(
-                    'ÖLSPELET',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 58.0,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 3.0),
-                  ),
-                ),
-              ),
+              HeaderText('FÄRJEVÄGEN 22'),
               SizedBox(
                 height: height * 0.012,
               ),
