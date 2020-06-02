@@ -1,6 +1,6 @@
 import 'package:drinkinggame/pages/game_page.dart';
 import 'package:drinkinggame/pages/player_select_page.dart';
-import 'package:drinkinggame/pages/start_page.dart';
+import 'package:drinkinggame/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(fontFamily: 'PatrickHand'),
       ),
       //home: StartPage(),
-      home: StartPage(),
+      home: HomePage(),
       routes: {
         GamePage.routeName: (ctx) => GamePage(),
         PlayerSelect.routeName: (ctx) => PlayerSelect()
