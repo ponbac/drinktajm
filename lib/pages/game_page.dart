@@ -2,6 +2,8 @@ import 'package:drinkinggame/models/player.dart';
 import 'package:drinkinggame/models/session.dart';
 import 'package:drinkinggame/models/question.dart';
 import 'package:drinkinggame/resources/question_provider.dart';
+import 'package:drinkinggame/widgets/action_button.dart';
+import 'package:drinkinggame/widgets/header_text.dart';
 
 import 'package:flutter/material.dart';
 
@@ -41,14 +43,19 @@ class _GamePageState extends State<GamePage> {
                 padding: EdgeInsets.all(25),
                 child: Column(
                   children: <Widget>[
-                    Text('${currentQuestion.category}',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 40)),
+                    HeaderText('${currentQuestion.category}'),
                     Text('${currentQuestion.description}',
-                        style: TextStyle(fontSize: 20))
+                        style: TextStyle(fontSize: 22))
                   ],
                 ),
-              ),
+              ), Container(
+                height: 48,
+                child: ActionButton(buttonTitle: 'Nästa', onPress: () {
+                  setState(() {
+                    print('NEW QUESTION: ${session.currentQuestion}');
+                  });
+                },),
+              )
             ];
           } else {
             children = <Widget>[

@@ -23,13 +23,30 @@ class Session {
     playerList.clear();
   }
 
-  Question getRandomQuestion() {
-    currentQuestion = (_questionList..shuffle()).first;
+  Question nextQuestion() {
+    if (currentQuestion == null) {
+      return _getRandomQuestion();
+    }
+
+    Question tmpQuestion = _getRandomQuestion();
+    print(tmpQuestion.description);
+
+    while (currentQuestion.description == tmpQuestion.description) {
+      tmpQuestion = _getRandomQuestion();
+    }
+
+    currentQuestion = tmpQuestion;
+    print(tmpQuestion.description);
+
     return currentQuestion;
+  }
+
+  Question _getRandomQuestion() {
+    return (_questionList..shuffle()).first;
   }
 
   set questionList(List<Question> list) {
     _questionList = list;
-    getRandomQuestion();
+    currentQuestion = nextQuestion();
   }
 }
