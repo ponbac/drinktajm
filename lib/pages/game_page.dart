@@ -13,9 +13,6 @@ class GamePage extends StatelessWidget {
     Session session = new Session(new List<Player>(), context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Gametajm'),
-      ),
       body: FutureBuilder<List<Question>>(
         future: getQuestions(context),
         builder:
@@ -28,9 +25,18 @@ class GamePage extends StatelessWidget {
             Question currentQuestion = session.currentQuestion;
 
             children = <Widget>[
-              Text('${currentQuestion.category}', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40)),
-              Text(
-                  '${currentQuestion.description}', style: TextStyle(fontSize: 20))
+              Container(
+                padding: EdgeInsets.all(25),
+                child: Column(
+                  children: <Widget>[
+                    Text('${currentQuestion.category}',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 40)),
+                    Text('${currentQuestion.description}',
+                        style: TextStyle(fontSize: 20))
+                  ],
+                ),
+              ),
             ];
           } else {
             children = <Widget>[

@@ -6,9 +6,6 @@ class PlayerSelect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Välj spelare'),
-      ),
       body: ListView(),
     );
   }
