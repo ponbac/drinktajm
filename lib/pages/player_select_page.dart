@@ -1,4 +1,5 @@
 import 'package:drinkinggame/models/player.dart';
+import 'package:drinkinggame/models/session.dart';
 import 'package:drinkinggame/pages/game_page.dart';
 import 'package:drinkinggame/widgets/action_button.dart';
 import 'package:drinkinggame/widgets/header_text.dart';
@@ -23,7 +24,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
   void _startGame(BuildContext ctx) {
     if (playerList.length > 0) {
       Navigator.of(ctx)
-          .pushNamed(GamePage.routeName, arguments: {'playerList': playerList});
+          .push(MaterialPageRoute(builder: (_) => GamePage(new Session(playerList))));
     }
   }
 
@@ -50,7 +51,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
           Center(
               child: Ink(
             decoration: const ShapeDecoration(
-              color: Colors.lightBlue,
+              color: Color(0xFF1089ff),
               shape: CircleBorder(),
             ),
             child: IconButton(
@@ -115,7 +116,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
             ),
           )),
           Container(
-            height: 48,
+            height: height*0.06,
             margin: EdgeInsets.only(top: 15),
             child: ActionButton(
               buttonTitle: 'Börja spela!',

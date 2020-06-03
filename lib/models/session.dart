@@ -7,9 +7,10 @@ class Session {
   Question currentQuestion;
   List<Question> _questionList;
   List<Player> playerList;
-  BuildContext context;
 
-  Session(this.playerList, this.context);
+  Session(this.playerList) {
+    print('New session!');
+  }
 
   void addPlayer(Player player) {
     playerList.add(player);
@@ -29,14 +30,14 @@ class Session {
     }
 
     Question tmpQuestion = _getRandomQuestion();
-    print(tmpQuestion.description);
+    //print(tmpQuestion.description);
 
     while (currentQuestion.description == tmpQuestion.description) {
       tmpQuestion = _getRandomQuestion();
     }
 
     currentQuestion = tmpQuestion;
-    print(tmpQuestion.description);
+    //print(tmpQuestion.description);
 
     return currentQuestion;
   }
@@ -44,6 +45,9 @@ class Session {
   Question _getRandomQuestion() {
     return (_questionList..shuffle()).first;
   }
+
+
+  List<Question> get questionList => _questionList;
 
   set questionList(List<Question> list) {
     _questionList = list;

@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       //home: StartPage(),
       home: HomePage(),
       routes: {
-        GamePage.routeName: (ctx) => GamePage(),
+        //GamePage.routeName: (ctx) => GamePage(Session s),
         PlayerSelect.routeName: (ctx) => PlayerSelect()
       },
     );

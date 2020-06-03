@@ -1,30 +1,35 @@
 import 'package:drinkinggame/models/player.dart';
 import 'package:drinkinggame/models/session.dart';
 import 'package:drinkinggame/models/question.dart';
+import 'package:drinkinggame/pages/current_score_page.dart';
 import 'package:drinkinggame/resources/question_provider.dart';
 import 'package:drinkinggame/widgets/action_button.dart';
 import 'package:drinkinggame/widgets/header_text.dart';
+import 'package:drinkinggame/widgets/question_card.dart';
 
 import 'package:flutter/material.dart';
 
 class GamePage extends StatefulWidget {
   static const routeName = '/game';
 
+  final Session session;
+
+  GamePage(this.session);
+
   @override
   _GamePageState createState() => _GamePageState();
 }
 
 class _GamePageState extends State<GamePage> {
-  List<Player> playerList;
+  void _viewScore(BuildContext ctx, List<Player> playerList) {
+      Navigator.of(ctx)
+          .push(
+          MaterialPageRoute(builder: (_) => CurrentScore(playerList)));
+  }
 
   @override
   Widget build(BuildContext context) {
-    final routeArgs =
-        ModalRoute.of(context).settings.arguments as Map<String, List<Player>>;
-
-    playerList = routeArgs['playerList'];
-
-    Session session = new Session(playerList, context);
+    Session session = widget.session;
 
     return Scaffold(
       body: FutureBuilder<List<Question>>(
@@ -34,28 +39,39 @@ class _GamePageState extends State<GamePage> {
           List<Widget> children;
 
           if (snapshot.hasData) {
-            session.questionList = snapshot.data;
+            if (session.questionList == null) {
+              session.questionList = snapshot.data;
+            }
 
             Question currentQuestion = session.currentQuestion;
 
             children = <Widget>[
+              QuestionCard(currentQuestion),
               Container(
-                padding: EdgeInsets.all(25),
-                child: Column(
-                  children: <Widget>[
-                    HeaderText('${currentQuestion.category}'),
-                    Text('${currentQuestion.description}',
-                        style: TextStyle(fontSize: 22))
-                  ],
-                ),
-              ), Container(
                 height: 48,
-                child: ActionButton(buttonTitle: 'Nästa', onPress: () {
-                  setState(() {
-                    print('NEW QUESTION: ${session.currentQuestion}');
-                  });
-                },),
-              )
+                child: ActionButton(
+                  buttonTitle: 'Nästa',
+                  onPress: () {
+                    setState(() {
+                      session.nextQuestion();
+                      print('NEW QUESTION: ${session.currentQuestion}');
+                    });
+                  },
+                ),
+              ),SizedBox(
+                height: 20,
+              ) ,Center(
+                  child: Ink(
+                    decoration: const ShapeDecoration(
+                      color: Color(0xFF1089ff),
+                      shape: CircleBorder(),
+                    ),
+                    child: IconButton(
+                      icon: Icon(Icons.supervisor_account),
+                      color: Colors.white,
+                      onPressed: () => _viewScore(context, session.playerList),
+                    ),
+                  )),
             ];
           } else {
             children = <Widget>[
