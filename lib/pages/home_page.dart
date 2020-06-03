@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
                     children: <Widget>[
                       Container(
 //                    width: 155,
-                        height: 64,
+                        height: height*0.08,
                         child: ActionButton(
                           buttonTitle: 'Supdags!',
                           onPress: () => startGame(context),
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                       ),
                       Container(
 //                    width: 155,
-                        height: 64,
+                        height: height*0.08,
                         child: ActionButton(
                           buttonTitle: 'Inställningar',
                           onPress: () => print('Settings!'),
