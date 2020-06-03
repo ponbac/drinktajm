@@ -17,7 +17,7 @@ class CurrentScore extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          HeaderText('TOPPLISTAN'),
+          HeaderText('OTURSLISTA'),
           SizedBox(
             height: height * 0.65,
             child: ListView.builder(

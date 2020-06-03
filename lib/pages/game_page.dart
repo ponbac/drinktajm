@@ -43,7 +43,7 @@ class _GamePageState extends State<GamePage> {
               session.questionList = snapshot.data;
             }
 
-            Question currentQuestion = session.currentQuestion;
+            Question currentQuestion = session.nextQuestion();
 
             children = <Widget>[
               QuestionCard(currentQuestion),
@@ -53,8 +53,7 @@ class _GamePageState extends State<GamePage> {
                   buttonTitle: 'Nästa',
                   onPress: () {
                     setState(() {
-                      session.nextQuestion();
-                      print('NEW QUESTION: ${session.currentQuestion}');
+
                     });
                   },
                 ),

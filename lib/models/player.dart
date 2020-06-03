@@ -1,10 +1,6 @@
-import 'dart:math';
-
 class Player {
   final String name;
-
-  static var rng = new Random();
-  int sips = rng.nextInt(25);
+  int sips = 0;
 
   Player(this.name);
 

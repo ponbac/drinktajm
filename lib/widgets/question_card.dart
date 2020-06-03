@@ -15,7 +15,7 @@ class QuestionCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           HeaderText('${question.category}'),
-          Text('${question.description}', style: TextStyle(fontSize: 22))
+          Text('${question.description}', style: TextStyle(fontSize: 22),  textAlign: TextAlign.center,)
         ],
       ),
     );

@@ -2,11 +2,13 @@
   "questions" : [
     {
       "category":"Klunkar",
-      "description":"Alla vid bordet dricker fyra klunkar!"
+      "description":"[all] vid bordet dricker fyra klunkar!",
+      "sips": 4,
+      "guaranteed": true
     },
     {
       "category":"Klunkar",
-      "description":"Spelare 2 får dela ut 6 klunkar"
+      "description":"[player] får dela ut 6 klunkar"
     },
     {
       "category":"Klunkar",

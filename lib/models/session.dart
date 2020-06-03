@@ -36,10 +36,32 @@ class Session {
       tmpQuestion = _getRandomQuestion();
     }
 
+    tmpQuestion = _parseQuestion(tmpQuestion);
     currentQuestion = tmpQuestion;
     //print(tmpQuestion.description);
 
     return currentQuestion;
+  }
+
+  Question _parseQuestion(Question question) {
+    String questionText = question.description;
+    int sips = question.sips;
+    bool guaranteed = question.guaranteed;
+
+    if (questionText.contains('[all]')) {
+      if (questionText.startsWith('[')) {
+        questionText = questionText.replaceAll('[all]', 'Alla');
+      } else {
+        questionText = questionText.replaceAll('[all]', 'alla');
+      }
+
+      if (guaranteed) {
+        playerList.forEach((player) => player.addSips(sips));
+      }
+    }
+
+    question.description = questionText;
+    return question;
   }
 
   Question _getRandomQuestion() {
