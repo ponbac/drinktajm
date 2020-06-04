@@ -23,8 +23,8 @@ class _PlayerSelectState extends State<PlayerSelect> {
 
   void _startGame(BuildContext ctx) {
     if (playerList.length > 0) {
-      Navigator.of(ctx)
-          .push(MaterialPageRoute(builder: (_) => GamePage(new Session(playerList))));
+      Navigator.of(ctx).push(
+          MaterialPageRoute(builder: (_) => GamePage(new Session(playerList))));
     }
   }
 
@@ -35,6 +35,9 @@ class _PlayerSelectState extends State<PlayerSelect> {
     return Scaffold(
       body: Column(
         children: <Widget>[
+          SizedBox(
+            height: 25,
+          ),
           HeaderText('VÄLJ SPELARE'),
           SizedBox(
             height: height * 0.65,
@@ -116,7 +119,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
             ),
           )),
           Container(
-            height: height*0.06,
+            height: height * 0.06,
             margin: EdgeInsets.only(top: 15),
             child: ActionButton(
               buttonTitle: 'Börja spela!',
