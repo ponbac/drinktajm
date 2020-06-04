@@ -2,7 +2,7 @@
   "questions" : [
     {
       "category":"Klunkar",
-      "description":"[all] vid bordet dricker fyra klunkar!",
+      "description":"[everyone] vid bordet dricker fyra klunkar!",
       "sips": 4,
       "guaranteed": true
     },

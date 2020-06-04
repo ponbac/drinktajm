@@ -13,6 +13,7 @@ class GamePage extends StatefulWidget {
   static const routeName = '/game';
 
   final Session session;
+  final Future loadQuestions = getQuestions();
 
   GamePage(this.session);
 
@@ -31,9 +32,10 @@ class _GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
     Session session = widget.session;
 
+
     return Scaffold(
       body: FutureBuilder<List<Question>>(
-        future: getQuestions(context),
+        future: widget.loadQuestions,
         builder:
             (BuildContext context, AsyncSnapshot<List<Question>> snapshot) {
           List<Widget> children;
@@ -43,7 +45,8 @@ class _GamePageState extends State<GamePage> {
               session.questionList = snapshot.data;
             }
 
-            Question currentQuestion = session.nextQuestion();
+            Question currentQuestion = session.currentQuestion;
+            print('built widget');
 
             children = <Widget>[
               QuestionCard(currentQuestion),
@@ -53,7 +56,7 @@ class _GamePageState extends State<GamePage> {
                   buttonTitle: 'Nästa',
                   onPress: () {
                     setState(() {
-
+                      session.nextQuestion();
                     });
                   },
                 ),

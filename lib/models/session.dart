@@ -25,14 +25,14 @@ class Session {
   }
 
   Question nextQuestion() {
-    if (currentQuestion == null) {
+    /*if (currentQuestion == null) {
       return _getRandomQuestion();
-    }
+    }*/
 
     Question tmpQuestion = _getRandomQuestion();
     //print(tmpQuestion.description);
 
-    while (currentQuestion.description == tmpQuestion.description) {
+    while (currentQuestion == tmpQuestion) {
       tmpQuestion = _getRandomQuestion();
     }
 
@@ -48,19 +48,22 @@ class Session {
     int sips = question.sips;
     bool guaranteed = question.guaranteed;
 
-    if (questionText.contains('[all]')) {
+    if (questionText.contains('[everyone]')) {
       if (questionText.startsWith('[')) {
-        questionText = questionText.replaceAll('[all]', 'Alla');
+        questionText = questionText.replaceAll('[everyone]', 'Alla');
       } else {
-        questionText = questionText.replaceAll('[all]', 'alla');
+        questionText = questionText.replaceAll('[everyone]', 'alla');
       }
 
       if (guaranteed) {
-        playerList.forEach((player) => player.addSips(sips));
+        playerList.forEach((player) {
+          player.addSips(sips);
+          print('${player.name} = ${player.sips} sips!');
+        });
       }
     }
 
-    question.description = questionText;
+    question = new Question(question.category, questionText, sips, guaranteed);
     return question;
   }
 
