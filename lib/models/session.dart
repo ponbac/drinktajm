@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class Session {
   Question currentQuestion;
   List<Question> _questionList;
+  List<Question> _usedQuestions = new List<Question>();
   List<Player> playerList;
 
   Session(this.playerList) {
@@ -24,23 +25,21 @@ class Session {
     playerList.clear();
   }
 
-  Question nextQuestion() {
-    /*if (currentQuestion == null) {
-      return _getRandomQuestion();
-    }*/
-
-    Question tmpQuestion = _getRandomQuestion();
-    //print(tmpQuestion.description);
-
-    while (currentQuestion == tmpQuestion) {
-      tmpQuestion = _getRandomQuestion();
+  void nextQuestion() {
+    if (_questionList.length == 0) {
+      _questionList = []..addAll(_usedQuestions)..shuffle();
+      _usedQuestions.clear();
+      print('Reset questions!');
     }
 
-    tmpQuestion = _parseQuestion(tmpQuestion);
-    currentQuestion = tmpQuestion;
-    //print(tmpQuestion.description);
+    Question originalQuestion = _questionList.first;
 
-    return currentQuestion;
+    Question parsedQuestion = _parseQuestion(originalQuestion);
+
+    _questionList.remove(originalQuestion);
+    _usedQuestions.add(originalQuestion);
+
+    currentQuestion = parsedQuestion;
   }
 
   Question _parseQuestion(Question question) {
@@ -67,15 +66,10 @@ class Session {
     return question;
   }
 
-  Question _getRandomQuestion() {
-    return (_questionList..shuffle()).first;
-  }
-
-
   List<Question> get questionList => _questionList;
 
   set questionList(List<Question> list) {
-    _questionList = list;
-    currentQuestion = nextQuestion();
+    _questionList = list..shuffle();
+    nextQuestion();
   }
 }

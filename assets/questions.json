@@ -8,19 +8,27 @@
     },
     {
       "category":"Klunkar",
-      "description":"[player] får dela ut 6 klunkar"
+      "description":"[player] får dela ut [sips] klunkar",
+      "sips": 6,
+      "guaranteed": false
     },
     {
       "category":"Klunkar",
-      "description":"Den yngsta spelaren dricker 3 klunkar"
+      "description":"Den yngsta spelaren dricker [sips] klunkar",
+      "sips": 3,
+      "guaranteed": false
     },
     {
       "category":"Pekleken",
-      "description":"Vem tror du har bäst kondition?"
+      "description":"Vem tror du har bäst kondition? [sips] klunkar per pek.",
+      "sips": 2,
+      "guaranteed": false
     },
     {
-      "category":"Ölspelet",
-      "description":"Spelare 1 utmanar en annan spelare. Vinnaren får ta en öl eller likvärdig dryck från förloraren"
+      "category":"Duell",
+      "description":"[player1] vs [player2], flest armhävningar vinner. Förloraren tar [sips] klunkar.",
+      "sips": 10,
+      "guaranteed": false
     }
   ]
 }
