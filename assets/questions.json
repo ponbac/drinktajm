@@ -8,7 +8,7 @@
     },
     {
       "category":"Klunkar",
-      "description":"[player] får dela ut [sips] klunkar",
+      "description":"[player1] får dela ut [sips] klunkar",
       "sips": 6,
       "guaranteed": false
     },
