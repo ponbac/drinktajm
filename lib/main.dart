@@ -1,6 +1,7 @@
 import 'package:drinkinggame/pages/game_page.dart';
 import 'package:drinkinggame/pages/player_select_page.dart';
 import 'package:drinkinggame/pages/home_page.dart';
+import 'package:drinkinggame/pages/secret_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -40,7 +41,8 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         //GamePage.routeName: (ctx) => GamePage(Session s),
-        PlayerSelect.routeName: (ctx) => PlayerSelect()
+        PlayerSelect.routeName: (ctx) => PlayerSelect(),
+        SecretPage.routeName: (ctx) => SecretPage()
       },
     );
   }

@@ -6,13 +6,11 @@ import 'package:http/http.dart' as http;
 Future<List<Question>> getQuestions() async {
   final String url = 'https://ponbac.github.io/json.html';
 
-  var questions;
-
   var raw = await http.get(url);
   //await DefaultAssetBundle.of(context).loadString("assets/questions.json");
 
 
-  questions = (jsonDecode(raw.body)['questions'] as List)
+  var questions = (jsonDecode(raw.body)['questions'] as List)
       .map((questionJson) => Question.fromJson(questionJson))
       .toList();
 

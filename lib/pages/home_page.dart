@@ -1,12 +1,17 @@
 import 'package:drinkinggame/pages/game_page.dart';
 import 'package:drinkinggame/pages/player_select_page.dart';
+import 'package:drinkinggame/pages/secret_page.dart';
 import 'package:drinkinggame/widgets/action_button.dart';
 import 'package:drinkinggame/widgets/header_text.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  void startGame(BuildContext ctx) {
+  void _startGame(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(PlayerSelect.routeName);
+  }
+
+  void _openSecret(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(SecretPage.routeName);
   }
 
   @override
@@ -46,7 +51,7 @@ class HomePage extends StatelessWidget {
                         height: height*0.08,
                         child: ActionButton(
                           buttonTitle: 'Supdags!',
-                          onPress: () => startGame(context),
+                          onPress: () => _startGame(context),
                         ),
                       ),
                       SizedBox(
@@ -56,8 +61,8 @@ class HomePage extends StatelessWidget {
 //                    width: 155,
                         height: height*0.08,
                         child: ActionButton(
-                          buttonTitle: 'Inställningar',
-                          onPress: () => print('Settings!'),
+                          buttonTitle: 'Hemligt',
+                          onPress: () => _openSecret(context),
                         ),
                       ),
                     ],
