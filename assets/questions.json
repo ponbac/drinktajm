@@ -35,6 +35,18 @@
       "description":"[player1] dricker [sips] klunkar.",
       "sips": 5,
       "guaranteed": true
+    },
+    {
+      "category":"Trivia",
+      "description":"[player1], vem är USA:s president?",
+      "sips": 0,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Bilmärken, förloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
     }
   ]
 }

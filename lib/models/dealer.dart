@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'dart:math';
 
 import 'question.dart';
@@ -17,71 +16,71 @@ class Dealer {
 
   //static const int NMBR_OF_CATEGORIES = 5;
 
-  List<Question> _allQuestionsList;
+  List<Question> _allQuestions;
 
-  List<Question> _klunkarQuestionsList = new List<Question>();
-  List<Question> _peklekQuestionsList = new List<Question>();
-  List<Question> _duellQuestionsList = new List<Question>();
-  List<Question> _triviaQuestionsList = new List<Question>();
-  List<Question> _kategoriQuestionsList = new List<Question>();
+  // decks to be used in game
+  List<Question> _klunkarQuestions;
+  List<Question> _peklekQuestions;
+  List<Question> _duellQuestions;
+  List<Question> _triviaQuestions;
+  List<Question> _kategoriQuestions;
 
-  List<Question> _usedKlunkarQuestionsList = new List<Question>();
-  List<Question> _usedPeklekQuestionsList = new List<Question>();
-  List<Question> _usedDuellQuestionsList = new List<Question>();
-  List<Question> _usedTriviaQuestionsList = new List<Question>();
-  List<Question> _usedKategoriQuestionsList = new List<Question>();
+  // lists that stores all questions for refilling game decks
+  List<Question> _allKlunkarQuestions = new List<Question>();
+  List<Question> _allPeklekQuestions = new List<Question>();
+  List<Question> _allDuellQuestions = new List<Question>();
+  List<Question> _allTriviaQuestions = new List<Question>();
+  List<Question> _allKategoriQuestions = new List<Question>();
 
-  Dealer(this._allQuestionsList) {
+  Dealer(this._allQuestions) {
     // fill decks
-    _allQuestionsList.forEach((question) {
+    _allQuestions.forEach((question) {
       switch (question.category.toLowerCase()) {
         case 'klunkar':
-          _klunkarQuestionsList.add(question);
+          _allKlunkarQuestions.add(question);
           break;
         case 'pekleken':
-          _peklekQuestionsList.add(question);
+          _allPeklekQuestions.add(question);
           break;
         case 'duell':
-          _duellQuestionsList.add(question);
+          _allDuellQuestions.add(question);
           break;
         case 'trivia':
-          _triviaQuestionsList.add(question);
+          _allTriviaQuestions.add(question);
           break;
         case 'kategori':
-          _kategoriQuestionsList.add(question);
+          _allKategoriQuestions.add(question);
           break;
         default:
           print('(${question.description}) do not have a valid category!');
       }
     });
 
-    // shuffle all decks
-    _klunkarQuestionsList = _klunkarQuestionsList..shuffle();
-    _peklekQuestionsList = _peklekQuestionsList..shuffle();
-    _duellQuestionsList = _duellQuestionsList..shuffle();
-    _triviaQuestionsList = _triviaQuestionsList..shuffle();
-    _kategoriQuestionsList = _kategoriQuestionsList..shuffle();
+    _copyQuestionsToGameDecks();
+
+    _shuffleAllDecks();
+  }
+
+  void _copyQuestionsToGameDecks() {
+    _klunkarQuestions = new List<Question>()..addAll(_allKlunkarQuestions);
+    _peklekQuestions = new List<Question>()..addAll(_allPeklekQuestions);
+    _duellQuestions = new List<Question>()..addAll(_allDuellQuestions);
+    _triviaQuestions = new List<Question>()..addAll(_allTriviaQuestions);
+    _kategoriQuestions = new List<Question>()..addAll(_allKategoriQuestions);
+  }
+
+  void _shuffleAllDecks() {
+    _klunkarQuestions = _klunkarQuestions..shuffle();
+    _peklekQuestions = _peklekQuestions..shuffle();
+    _duellQuestions = _duellQuestions..shuffle();
+    _triviaQuestions = _triviaQuestions..shuffle();
+    _kategoriQuestions = _kategoriQuestions..shuffle();
   }
 
   Question nextQuestion() {
-    /*if (_questionList.length == 0) {
-      _questionList = []
-        ..addAll(_usedQuestions)
-        ..shuffle();
-      _usedQuestions.clear();
-      print('Reset questions!');
-    }
+    // TODO: Remake this!
 
-    Question originalQuestion = _questionList.first;
-
-    Question parsedQuestion = _parseQuestion(originalQuestion);
-
-    _questionList.remove(originalQuestion);
-    _usedQuestions.add(originalQuestion);
-
-    return parsedQuestion;*/
-
-    _randomQuestion();
+    return _randomQuestion();
   }
 
   Question _randomQuestion() {
@@ -89,23 +88,65 @@ class Dealer {
 
     switch (category.toLowerCase()) {
       case 'klunkar':
+        // refill deck if empty
+        if (_klunkarQuestions.length == 0) {
+          _klunkarQuestions = new List<Question>()
+            ..addAll(_allKlunkarQuestions);
+          _klunkarQuestions =_klunkarQuestions..shuffle();
+        }
 
+        return _drawNextQuestion(_klunkarQuestions);
         break;
       case 'pekleken':
+        if (_peklekQuestions.length == 0) {
+          _peklekQuestions = new List<Question>()
+            ..addAll(_allPeklekQuestions);
+          _peklekQuestions= _peklekQuestions..shuffle();
+        }
 
+        return _drawNextQuestion(_peklekQuestions);
         break;
       case 'duell':
+        if (_duellQuestions.length == 0) {
+          _duellQuestions = new List<Question>()
+            ..addAll(_allDuellQuestions);
+          _duellQuestions= _duellQuestions..shuffle();
+        }
 
+        return _drawNextQuestion(_duellQuestions);
         break;
       case 'trivia':
+        if (_triviaQuestions.length == 0) {
+          _triviaQuestions = new List<Question>()
+            ..addAll(_allTriviaQuestions);
+          _triviaQuestions = _triviaQuestions..shuffle();
+        }
 
+        return _drawNextQuestion(_triviaQuestions);
         break;
       case 'kategori':
+        if (_kategoriQuestions.length == 0) {
+          _kategoriQuestions = new List<Question>()
+            ..addAll(_allKategoriQuestions);
+          _kategoriQuestions = _kategoriQuestions..shuffle();
+        }
 
+        return _drawNextQuestion(_kategoriQuestions);
         break;
       default:
         print('$category is not a valid category!');
     }
+
+    // No question available return
+    return new Question('ERROR', 'No question could be found, mystiskt!', 0, false);
+  }
+
+  Question _drawNextQuestion(List<Question> questionList) {
+    Question question = questionList.first;
+
+    questionList.remove(question);
+
+    return question;
   }
 
   String _categorySelector() {

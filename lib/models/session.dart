@@ -11,7 +11,6 @@ class Session {
 
   Question currentQuestion;
   List<Question> _questionList;
-  List<Question> _usedQuestions = new List<Question>();
   List<Player> playerList;
 
   Session(this.playerList) {
@@ -19,20 +18,7 @@ class Session {
   }
 
   void nextQuestion() {
-    if (_questionList.length == 0) {
-      _questionList = []
-        ..addAll(_usedQuestions)
-        ..shuffle();
-      _usedQuestions.clear();
-      print('Reset questions!');
-    }
-
-    Question originalQuestion = _questionList.first;
-
-    Question parsedQuestion = _parseQuestion(originalQuestion);
-
-    _questionList.remove(originalQuestion);
-    _usedQuestions.add(originalQuestion);
+    Question parsedQuestion = _parseQuestion(dealer.nextQuestion());
 
     currentQuestion = parsedQuestion;
   }
@@ -93,11 +79,8 @@ class Session {
   List<Question> get questionList => _questionList;
 
   set questionList(List<Question> list) {
-    //_questionList = list..shuffle();
-    _questionList = list;
-    dealer = new Dealer(_questionList);
+    dealer = new Dealer(list);
 
     nextQuestion();
-    dealer.nextQuestion();
   }
 }
