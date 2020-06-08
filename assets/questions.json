@@ -29,6 +29,12 @@
       "description":"[player1] vs [player2], flest armhävningar vinner. Förloraren tar [sips] klunkar.",
       "sips": 10,
       "guaranteed": false
+    },
+    {
+      "category":"Klunkar",
+      "description":"[player1] dricker [sips] klunkar.",
+      "sips": 5,
+      "guaranteed": true
     }
   ]
 }

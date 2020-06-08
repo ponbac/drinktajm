@@ -1,3 +1,4 @@
+import 'package:drinkinggame/models/dealer.dart';
 import 'package:drinkinggame/models/player.dart';
 import 'package:drinkinggame/models/question.dart';
 
@@ -6,6 +7,8 @@ import 'dart:math';
 class Session {
   static final Random rng = new Random();
 
+  Dealer dealer;
+
   Question currentQuestion;
   List<Question> _questionList;
   List<Question> _usedQuestions = new List<Question>();
@@ -13,18 +16,6 @@ class Session {
 
   Session(this.playerList) {
     print('New session!');
-  }
-
-  void addPlayer(Player player) {
-    playerList.add(player);
-  }
-
-  void removePlayer(Player player) {
-    playerList.remove(player);
-  }
-
-  void clearPlayers() {
-    playerList.clear();
   }
 
   void nextQuestion() {
@@ -102,7 +93,11 @@ class Session {
   List<Question> get questionList => _questionList;
 
   set questionList(List<Question> list) {
-    _questionList = list..shuffle();
+    //_questionList = list..shuffle();
+    _questionList = list;
+    dealer = new Dealer(_questionList);
+
     nextQuestion();
+    dealer.nextQuestion();
   }
 }
