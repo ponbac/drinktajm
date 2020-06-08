@@ -3,7 +3,7 @@ import 'package:drinkinggame/models/question.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<List<Question>> getQuestions() async {
+Future<List<Question>> getQuestionsFromJson() async {
   final String url = 'https://ponbac.github.io/json.html';
 
   var raw = await http.get(url);
@@ -17,3 +17,4 @@ Future<List<Question>> getQuestions() async {
   //debugPrint('Returning questions: ' + questions.toString());
   return questions;
 }
+

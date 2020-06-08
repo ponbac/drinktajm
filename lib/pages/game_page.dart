@@ -13,7 +13,7 @@ class GamePage extends StatefulWidget {
   static const routeName = '/game';
 
   final Session session;
-  final Future loadQuestions = getQuestions();
+  final Future loadQuestions = getQuestionsFromJson();
 
   GamePage(this.session);
 

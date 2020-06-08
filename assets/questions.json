@@ -2,8 +2,8 @@
   "questions" : [
     {
       "category":"Klunkar",
-      "description":"[everyone] vid bordet dricker fyra klunkar!",
-      "sips": 4,
+      "description":"[everyone] vid bordet dricker [sips] klunkar!",
+      "sips": 5,
       "guaranteed": true
     },
     {
@@ -19,32 +19,68 @@
       "guaranteed": false
     },
     {
-      "category":"Pekleken",
-      "description":"Vem tror du har bäst kondition? [sips] klunkar per pek.",
-      "sips": 2,
-      "guaranteed": false
-    },
-    {
-      "category":"Duell",
-      "description":"[player1] vs [player2], flest armhävningar vinner. Förloraren tar [sips] klunkar.",
-      "sips": 10,
-      "guaranteed": false
-    },
-    {
       "category":"Klunkar",
       "description":"[player1] dricker [sips] klunkar.",
       "sips": 5,
       "guaranteed": true
     },
     {
+      "category":"Pekleken",
+      "description":"Vem tror du har bäst kondition?\n[sips] klunk per pek.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category":"Pekleken",
+      "description":"Vem i rummet tror du hade kunnat komma undan med mord?\n[sips] klunk per pek.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category":"Pekleken",
+      "description":"Vem i rummet har sämst musiksmak?\n[sips] klunk per pek.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category":"Duell",
+      "description":"[player1] vs [player2]\nFlest armhävningar vinner.\nFörloraren tar [sips] klunkar.",
+      "sips": 10,
+      "guaranteed": false
+    },
+    {
+      "category":"Duell",
+      "description":"[player1] vs [player2]\nVinnaren är den som först säger vilken låt som spelas.\nFörloraren tar [sips] klunkar.",
+      "sips": 10,
+      "guaranteed": false
+    },
+    {
+      "category":"Duell",
+      "description":"[player1] vs [player2]\nVinnaren är den som snabbast tar i taket.\nFörloraren tar [sips] klunkar.",
+      "sips": 10,
+      "guaranteed": false
+    },
+    {
       "category":"Trivia",
-      "description":"[player1], vem är USA:s president?",
+      "description":"[player1], vem har störst skalle?",
       "sips": 0,
       "guaranteed": true
     },
     {
       "category":"Kategori",
-      "description":"Bilmärken, förloraren tar [sips] klunkar.",
+      "description":"Bilmärken\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Fotbollsspelare\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Tecknade serier\nFörloraren tar [sips] klunkar.",
       "sips": 6,
       "guaranteed": true
     }
