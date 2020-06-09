@@ -33,12 +33,21 @@ class TriviaQuestion extends Question {
 
     return TriviaQuestion(
         'Trivia',
-        '[player1]:\n' + json['question'] + '\nDela ut [sips] klunkar vid korrekt svar.',
+        '[player1]:\n' + _cleanTriviaText(json['question']) + '\nDela ut [sips] klunkar vid korrekt svar.',
         sipsBasedOnDiff,
         false,
         json['category'] as String,
         diff,
         json['correct_answer'] as String,
         json['incorrect_answers'].cast<String>());
+  }
+
+  // removes encoding used by opentdb
+  static String _cleanTriviaText(String text) {
+    text = text.replaceAll('&quot;', '"');
+    text = text.replaceAll('&#039;', '\'');
+    text = text.replaceAll('&eacute;', 'é');
+
+    return text;
   }
 }
