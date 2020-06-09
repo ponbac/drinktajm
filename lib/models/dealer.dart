@@ -8,7 +8,7 @@ class Dealer {
 
   // Relative probability values for each category
   static const Map<String, int> _categoryProbabilities = {
-    'KLUNKAR': 1,
+    'KLUNKAR': 2,
     'PEKLEKEN': 1,
     'DUELL': 1,
     'TRIVIA': 1,
@@ -34,6 +34,8 @@ class Dealer {
   List<Question> _allKategoriQuestions = new List<Question>();
 
   Dealer(this._allQuestions) {
+    _testCategorySelector();
+
     // fill decks
     _allQuestions.forEach((question) {
       switch (question.category.toLowerCase()) {
@@ -93,33 +95,30 @@ class Dealer {
         if (_klunkarQuestions.length == 0) {
           _klunkarQuestions = new List<Question>()
             ..addAll(_allKlunkarQuestions);
-          _klunkarQuestions =_klunkarQuestions..shuffle();
+          _klunkarQuestions = _klunkarQuestions..shuffle();
         }
 
         return _drawNextQuestion(_klunkarQuestions);
         break;
       case 'pekleken':
         if (_peklekQuestions.length == 0) {
-          _peklekQuestions = new List<Question>()
-            ..addAll(_allPeklekQuestions);
-          _peklekQuestions= _peklekQuestions..shuffle();
+          _peklekQuestions = new List<Question>()..addAll(_allPeklekQuestions);
+          _peklekQuestions = _peklekQuestions..shuffle();
         }
 
         return _drawNextQuestion(_peklekQuestions);
         break;
       case 'duell':
         if (_duellQuestions.length == 0) {
-          _duellQuestions = new List<Question>()
-            ..addAll(_allDuellQuestions);
-          _duellQuestions= _duellQuestions..shuffle();
+          _duellQuestions = new List<Question>()..addAll(_allDuellQuestions);
+          _duellQuestions = _duellQuestions..shuffle();
         }
 
         return _drawNextQuestion(_duellQuestions);
         break;
       case 'trivia':
         if (_triviaQuestions.length == 0) {
-          _triviaQuestions = new List<Question>()
-            ..addAll(_allTriviaQuestions);
+          _triviaQuestions = new List<Question>()..addAll(_allTriviaQuestions);
           _triviaQuestions = _triviaQuestions..shuffle();
         }
 
@@ -139,7 +138,8 @@ class Dealer {
     }
 
     // No question available return
-    return new NormalQuestion('ERROR', 'No question could be found, mystiskt!', 0, false);
+    return new NormalQuestion(
+        'ERROR', 'No question could be found, mystiskt!', 0, false);
   }
 
   Question _drawNextQuestion(List<Question> questionList) {
@@ -165,5 +165,41 @@ class Dealer {
     }
 
     return _categoryProbabilities.keys.toList()[max(0, i)];
+  }
+
+  void _testCategorySelector() {
+    int counter1 = 0;
+    int counter2 = 0;
+    int counter3 = 0;
+    int counter4 = 0;
+    int counter5 = 0;
+
+    for (int i = 0; i < 1000; i++) {
+      switch (_categorySelector().toLowerCase()) {
+        case 'klunkar':
+          counter1++;
+          break;
+        case 'pekleken':
+          counter2++;
+          break;
+        case 'duell':
+          counter3++;
+          break;
+        case 'trivia':
+          counter4++;
+          break;
+        case 'kategori':
+          counter5++;
+          break;
+        default:
+          print('Something is not a valid category!');
+      }
+    }
+
+    print('counter1 = $counter1');
+    print('counter2 = $counter2');
+    print('counter3 = $counter3');
+    print('counter4 = $counter4');
+    print('counter5 = $counter5');
   }
 }

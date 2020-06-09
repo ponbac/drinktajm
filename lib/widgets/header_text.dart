@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class HeaderText extends StatelessWidget {
   final String text;
+  final double size;
 
-  HeaderText(this.text);
+  HeaderText(this.text, {this.size=58});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class HeaderText extends StatelessWidget {
           text,
           style: TextStyle(
               color: Colors.white,
-              fontSize: 58.0,
+              fontSize: size,
               fontWeight: FontWeight.w300,
               letterSpacing: 3.0),
         ),

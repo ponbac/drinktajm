@@ -33,13 +33,23 @@ class TriviaQuestion extends Question {
 
     return TriviaQuestion(
         'Trivia',
-        '[player1]:\n' + _cleanTriviaText(json['question']) + '\nDela ut [sips] klunkar vid korrekt svar.',
+        '[player1],\n' + _cleanTriviaText(json['question']) + '\nDela ut [sips] klunkar vid korrekt svar.',
         sipsBasedOnDiff,
         false,
         json['category'] as String,
         diff,
         json['correct_answer'] as String,
         json['incorrect_answers'].cast<String>());
+  }
+
+  List<String> getAllAnswers() {
+    List<String> allAnswers = []..addAll(answers);
+    allAnswers.add(correctAnswer);
+
+    //shuffle answers
+    allAnswers = allAnswers..shuffle();
+
+    return allAnswers;
   }
 
   // removes encoding used by opentdb

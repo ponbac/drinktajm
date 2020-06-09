@@ -1,5 +1,6 @@
 import 'package:drinkinggame/models/normal_question.dart';
 import 'package:drinkinggame/models/question.dart';
+import 'package:drinkinggame/models/trivia_question.dart';
 import 'package:flutter/material.dart';
 
 import 'header_text.dart';
@@ -33,9 +34,13 @@ class QuestionCard extends StatelessWidget {
   }
 
   Widget _buildTriviaQuestion() {
+    TriviaQuestion triviaQuestion = question as TriviaQuestion;
+
     return Column(
       children: <Widget>[
-        HeaderText('${question.category}'),
+        HeaderText(
+            '${question.category}, ${triviaQuestion.difficulty}',
+            size: 40),
         Text(
           '${question.description}',
           style: TextStyle(fontSize: 26, color: Colors.amber),
