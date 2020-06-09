@@ -47,7 +47,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
                 style: TextStyle(fontSize: 18, color: Colors.amber),
               )),
           SizedBox(
-            height: height * 0.65,
+            height: height * 0.60,
             child: ListView.builder(
                 itemCount: playerList.length,
                 itemBuilder: (context, index) {

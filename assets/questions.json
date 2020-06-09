@@ -73,12 +73,6 @@
       "guaranteed": false
     },
     {
-      "category":"Trivia",
-      "description":"[player1], vem har störst skalle?",
-      "sips": 0,
-      "guaranteed": true
-    },
-    {
       "category":"Kategori",
       "description":"Bilmärken\nFörloraren tar [sips] klunkar.",
       "sips": 6,
