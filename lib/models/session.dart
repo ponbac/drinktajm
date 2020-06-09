@@ -4,6 +4,10 @@ import 'package:drinkinggame/models/question.dart';
 
 import 'dart:math';
 
+import 'package:drinkinggame/models/trivia_question.dart';
+
+import 'normal_question.dart';
+
 class Session {
   static final Random rng = new Random();
 
@@ -72,7 +76,12 @@ class Session {
       }
     }
 
-    question = new Question(question.category, questionText, sips, guaranteed);
+    if (question is TriviaQuestion) {
+      return new TriviaQuestion(question.category, questionText, sips, guaranteed, question.triviaCategory, question.difficulty, question.correctAnswer, question.answers);
+    } else {
+      question = new NormalQuestion(question.category, questionText, sips, guaranteed);
+    }
+
     return question;
   }
 

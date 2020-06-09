@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:drinkinggame/models/normal_question.dart';
 import 'package:drinkinggame/models/question.dart';
 import 'package:drinkinggame/models/trivia_question.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ Future<List<Question>> getQuestionsFromJson() async {
 
 
   var questions = (jsonDecode(raw.body)['questions'] as List)
-      .map((questionJson) => Question.fromJson(questionJson))
+      .map((questionJson) => NormalQuestion.fromJson(questionJson))
       .toList();
 
   var triviaQuestions = (jsonDecode(triviaRaw.body)['results'] as List)

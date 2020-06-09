@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'normal_question.dart';
 import 'question.dart';
 
 class Dealer {
@@ -138,7 +139,7 @@ class Dealer {
     }
 
     // No question available return
-    return new Question('ERROR', 'No question could be found, mystiskt!', 0, false);
+    return new NormalQuestion('ERROR', 'No question could be found, mystiskt!', 0, false);
   }
 
   Question _drawNextQuestion(List<Question> questionList) {
