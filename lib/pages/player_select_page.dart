@@ -22,7 +22,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
   }
 
   void _startGame(BuildContext ctx) {
-    if (playerList.length > 0) {
+    if (playerList.length > 1) {
       Navigator.of(ctx).push(
           MaterialPageRoute(builder: (_) => GamePage(new Session(playerList))));
     }
@@ -33,12 +33,19 @@ class _PlayerSelectState extends State<PlayerSelect> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: <Widget>[
           SizedBox(
             height: 25,
           ),
           HeaderText('VÄLJ SPELARE'),
+          Visibility(
+              visible: playerList.length < 2,
+              child: Text(
+                'Minst två spelare!',
+                style: TextStyle(fontSize: 18, color: Colors.amber),
+              )),
           SizedBox(
             height: height * 0.65,
             child: ListView.builder(
@@ -64,56 +71,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return AlertDialog(
-                        content: Stack(
-                          overflow: Overflow.visible,
-                          children: <Widget>[
-                            Positioned(
-                              right: -40.0,
-                              top: -40.0,
-                              child: InkResponse(
-                                onTap: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: CircleAvatar(
-                                  child: Icon(Icons.close),
-                                  backgroundColor: Colors.red,
-                                ),
-                              ),
-                            ),
-                            Form(
-                              key: _formKey,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: TextFormField(
-                                      onSaved: (String value) {
-                                        setState(() {
-                                          _addPlayer(value);
-                                          Navigator.of(context).pop();
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: RaisedButton(
-                                      child: Text("ska supa!"),
-                                      onPressed: () {
-                                        if (_formKey.currentState.validate()) {
-                                          _formKey.currentState.save();
-                                        }
-                                      },
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
+                      return _buildDialog();
                     });
               },
             ),
@@ -126,6 +84,59 @@ class _PlayerSelectState extends State<PlayerSelect> {
               onPress: () => _startGame(context),
             ),
           )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDialog() {
+    return AlertDialog(
+      content: Stack(
+        overflow: Overflow.visible,
+        children: <Widget>[
+          Positioned(
+            right: -40.0,
+            top: -40.0,
+            child: InkResponse(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: CircleAvatar(
+                child: Icon(Icons.close),
+                backgroundColor: Colors.red,
+              ),
+            ),
+          ),
+          Form(
+            key: _formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    onSaved: (String value) {
+                      setState(() {
+                        _addPlayer(value);
+                        Navigator.of(context).pop();
+                      });
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    child: Text("ska supa!"),
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        _formKey.currentState.save();
+                      }
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

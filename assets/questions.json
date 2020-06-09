@@ -2,6 +2,12 @@
   "questions" : [
     {
       "category":"Klunkar",
+      "description":"Vattenfall!\n[player1] börjar.",
+      "sips": 0,
+      "guaranteed": false
+    },
+    {
+      "category":"Klunkar",
       "description":"[everyone] vid bordet dricker [sips] klunkar!",
       "sips": 5,
       "guaranteed": true
@@ -15,7 +21,13 @@
     {
       "category":"Klunkar",
       "description":"Den yngsta spelaren dricker [sips] klunkar",
-      "sips": 3,
+      "sips": 4,
+      "guaranteed": false
+    },
+    {
+      "category":"Klunkar",
+      "description":"Den äldsta spelaren dricker [sips] klunkar",
+      "sips": 4,
       "guaranteed": false
     },
     {
