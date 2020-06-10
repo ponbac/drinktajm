@@ -9,9 +9,9 @@ class Dealer {
   // Relative probability values for each category
   static const Map<String, int> _categoryProbabilities = {
     'KLUNKAR': 1,
-    'PEKLEKEN': 1,
-    'DUELL': 2,
-    'TRIVIA': 1,
+    'PEKLEKEN': 2,
+    'DUELL': 1,
+    'TRIVIA': 2,
     'KATEGORI': 1
   };
 
@@ -157,14 +157,14 @@ class Dealer {
       totalSum += value;
     });
 
-    int index = _rng.nextInt(totalSum);
+    int index = _rng.nextInt(totalSum) + 1;
     int sum = 0;
     int i = 0;
     while (sum < index) {
       sum = sum + _categoryProbabilities.values.toList()[i++];
     }
 
-    return _categoryProbabilities.keys.toList()[max(0, i)];
+    return _categoryProbabilities.keys.toList()[max(0, i-1)];
   }
 
   void _testCategorySelector() {
