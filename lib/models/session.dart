@@ -27,6 +27,7 @@ class Session {
     currentQuestion = parsedQuestion;
   }
 
+  // TODO: THIS METHOD NEEDS A LOT OF WORK, DIVIDE!
   Question _parseQuestion(Question question) {
     String questionText = question.description;
     int sips = question.sips;

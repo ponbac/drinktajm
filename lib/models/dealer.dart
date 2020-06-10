@@ -8,9 +8,9 @@ class Dealer {
 
   // Relative probability values for each category
   static const Map<String, int> _categoryProbabilities = {
-    'KLUNKAR': 2,
+    'KLUNKAR': 1,
     'PEKLEKEN': 1,
-    'DUELL': 1,
+    'DUELL': 2,
     'TRIVIA': 1,
     'KATEGORI': 1
   };
