@@ -41,7 +41,7 @@ class _GamePageState extends State<GamePage> {
           List<Widget> children;
 
           if (snapshot.hasData) {
-            if (session.questionList == null) {
+            if (session.questionListLoaded == false) {
               session.questionList = snapshot.data;
             }
 

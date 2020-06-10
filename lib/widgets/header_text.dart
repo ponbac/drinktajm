@@ -4,7 +4,7 @@ class HeaderText extends StatelessWidget {
   final String text;
   final double size;
 
-  HeaderText(this.text, {this.size=58});
+  HeaderText(this.text, {this.size = 58});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,7 @@ class HeaderText extends StatelessWidget {
               fontSize: size,
               fontWeight: FontWeight.w300,
               letterSpacing: 3.0),
+          textAlign: TextAlign.center,
         ),
       ),
     );

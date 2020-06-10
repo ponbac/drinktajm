@@ -14,7 +14,7 @@ class Session {
   Dealer dealer;
 
   Question currentQuestion;
-  List<Question> _questionList;
+  bool questionListLoaded = false;
   List<Player> playerList;
 
   Session(this.playerList) {
@@ -86,10 +86,9 @@ class Session {
     return question;
   }
 
-  List<Question> get questionList => _questionList;
-
   set questionList(List<Question> list) {
     dealer = new Dealer(list);
+    questionListLoaded = true;
 
     nextQuestion();
   }

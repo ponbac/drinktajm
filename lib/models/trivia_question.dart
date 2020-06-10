@@ -52,6 +52,22 @@ class TriviaQuestion extends Question {
     return allAnswers;
   }
 
+  String getDifficultyAsString() {
+    switch (difficulty) {
+      case Difficulty.easy:
+        return 'Lätt';
+        break;
+      case Difficulty.medium:
+        return 'Mellan';
+        break;
+      case Difficulty.hard:
+        return 'Svår';
+        break;
+    }
+
+    return 'no set difficulty';
+  }
+
   // removes encoding used by opentdb
   static String _cleanTriviaText(String text) {
     text = text.replaceAll('&quot;', '"');

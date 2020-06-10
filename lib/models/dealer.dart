@@ -9,9 +9,9 @@ class Dealer {
   // Relative probability values for each category
   static const Map<String, int> _categoryProbabilities = {
     'KLUNKAR': 1,
-    'PEKLEKEN': 2,
+    'PEKLEKEN': 1,
     'DUELL': 1,
-    'TRIVIA': 2,
+    'TRIVIA': 10,
     'KATEGORI': 1
   };
 
@@ -34,7 +34,7 @@ class Dealer {
   List<Question> _allKategoriQuestions = new List<Question>();
 
   Dealer(this._allQuestions) {
-    _testCategorySelector();
+    //_testCategorySelector();
 
     // fill decks
     _allQuestions.forEach((question) {
@@ -65,6 +65,7 @@ class Dealer {
   }
 
   void _copyQuestionsToGameDecks() {
+    print('Copying questions to game decks!');
     _klunkarQuestions = new List<Question>()..addAll(_allKlunkarQuestions);
     _peklekQuestions = new List<Question>()..addAll(_allPeklekQuestions);
     _duellQuestions = new List<Question>()..addAll(_allDuellQuestions);
@@ -147,6 +148,7 @@ class Dealer {
 
     questionList.remove(question);
 
+    print(_triviaQuestions.length);
     return question;
   }
 
