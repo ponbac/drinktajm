@@ -11,7 +11,7 @@ import 'header_text.dart';
 
 class QuestionCard extends StatefulWidget {
   final Question question;
-  final Session session;
+  final Session session; //TODO: REMOVE THIS DEPENCENCY!
 
   QuestionCard(this.question, this.session);
 
@@ -106,10 +106,13 @@ class _QuestionCardState extends State<QuestionCard> {
               ),
             ), Visibility(
               visible: widget.session.displayingAnswer,
-              child: Text(
-                '$correctAnswer',
-                style: TextStyle(fontSize: 26, color: Colors.amber),
-                textAlign: TextAlign.center,
+              child: Container(
+                margin: EdgeInsets.only(top: 15),
+                child: Text(
+                  '$correctAnswer',
+                  style: TextStyle(fontSize: 45, color: Colors.green),
+                  textAlign: TextAlign.center,
+                ),
               ),
             )
           ],
