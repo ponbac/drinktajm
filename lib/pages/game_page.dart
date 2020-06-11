@@ -49,7 +49,7 @@ class _GamePageState extends State<GamePage> {
             print('built widget');
 
             children = <Widget>[
-              QuestionCard(currentQuestion),
+              QuestionCard(currentQuestion, session),
               Container(
                 height: 48,
                 child: ActionButton(
@@ -57,6 +57,7 @@ class _GamePageState extends State<GamePage> {
                   onPress: () {
                     setState(() {
                       session.nextQuestion();
+                      session.displayingAnswer = false;
                     });
                   },
                 ),

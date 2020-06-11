@@ -15,6 +15,7 @@ class Session {
 
   Question currentQuestion;
   bool questionListLoaded = false;
+  bool displayingAnswer = false;
   List<Player> playerList;
 
   Session(this.playerList) {
