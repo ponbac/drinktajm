@@ -14,6 +14,12 @@
     },
     {
       "category":"Klunkar",
+      "description":"[everyone] vid bordet dricker [sips] klunkar!",
+      "sips": 2,
+      "guaranteed": true
+    },
+    {
+      "category":"Klunkar",
       "description":"[player1] får dela ut [sips] klunkar",
       "sips": 6,
       "guaranteed": false
@@ -37,8 +43,14 @@
       "guaranteed": true
     },
     {
+      "category":"Klunkar",
+      "description":"De två spelare som sitter närmast [player1] dricker [sips] klunkar.",
+      "sips": 5,
+      "guaranteed": true
+    },
+    {
       "category":"Pekleken",
-      "description":"Vem tror du har bäst kondition?\n[sips] klunk per pek.",
+      "description":"Vem i rummet är mest vältränad?\n[sips] klunk per pek.",
       "sips": 1,
       "guaranteed": false
     },
@@ -51,6 +63,24 @@
     {
       "category":"Pekleken",
       "description":"Vem i rummet har sämst musiksmak?\n[sips] klunk per pek.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category":"Pekleken",
+      "description":"Vem är nyktrast ikväll?\n[sips] klunk per pek.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category":"Pekleken",
+      "description":"Vem lyssnar på mest dansband?\n[sips] klunk per pek.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category":"Pekleken",
+      "description":"Vem kommer mest troligen vara hemlös om 10 år?\n[sips] klunk per pek.",
       "sips": 1,
       "guaranteed": false
     },
@@ -73,6 +103,24 @@
       "guaranteed": false
     },
     {
+      "category":"Duell",
+      "description":"[player1] vs [player2]\nVinnaren är den som först nämner fyra karaktärer i \"Sagan om ringen\".\nFörloraren tar [sips] klunkar.",
+      "sips": 10,
+      "guaranteed": false
+    },
+    {
+      "category":"Duell",
+      "description":"[player1] vs [player2]\nDen med längst hår vinner.\nFörloraren tar [sips] klunkar.",
+      "sips": 10,
+      "guaranteed": false
+    },
+    {
+      "category":"Duell",
+      "description":"[player1] vs [player2]\nDen med minst i glaset vinner.\nFörloraren tar [sips] klunkar.",
+      "sips": 10,
+      "guaranteed": false
+    },
+    {
       "category":"Kategori",
       "description":"Bilmärken\nFörloraren tar [sips] klunkar.",
       "sips": 6,
@@ -87,6 +135,60 @@
     {
       "category":"Kategori",
       "description":"Tecknade serier\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Sminkmärken\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Serier på Netflix\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Serier på HBO\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Klädesplagg\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Länder i Europa\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Länder i Asien\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Svenska städer\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Öl- och cidermärken\nFörloraren tar [sips] klunkar.",
+      "sips": 6,
+      "guaranteed": true
+    },
+    {
+      "category":"Kategori",
+      "description":"Typer av alkohol\nFörloraren tar [sips] klunkar.",
       "sips": 6,
       "guaranteed": true
     }

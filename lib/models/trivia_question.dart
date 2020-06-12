@@ -74,6 +74,7 @@ class TriviaQuestion extends Question {
     text = text.replaceAll('&#039;', '\'');
     text = text.replaceAll('&eacute;', 'é');
     text = text.replaceAll('&amp;', '&');
+    text = text.replaceAll('&uuml;', 'ü');
 
     return text;
   }
