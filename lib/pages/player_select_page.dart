@@ -54,7 +54,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
                   return Center(
                       child: Text(
                     '${playerList.elementAt(index).name}',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40, color: Colors.amber),
                   ));
                 }),
           ),

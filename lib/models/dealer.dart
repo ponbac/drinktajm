@@ -8,8 +8,8 @@ class Dealer {
 
   // Relative probability values for each category
   static const Map<String, int> _categoryProbabilities = {
-    'KLUNKAR': 4,
-    'PEKLEKEN': 2,
+    'KLUNKAR': 1,
+    'PEKLEKEN': 1,
     'DUELL': 1,
     'TRIVIA': 1,
     'KATEGORI': 1
@@ -92,6 +92,7 @@ class Dealer {
 
     switch (category.toLowerCase()) {
       case 'klunkar':
+        // print('Klunkarkort kvar: ${_klunkarQuestions.length}\n${_klunkarQuestions.toString()}');
         // refill deck if empty
         if (_klunkarQuestions.length == 0) {
           _klunkarQuestions = new List<Question>()
@@ -148,7 +149,6 @@ class Dealer {
 
     questionList.remove(question);
 
-    print(_triviaQuestions.length);
     return question;
   }
 

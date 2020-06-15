@@ -24,7 +24,7 @@ class _QuestionCardState extends State<QuestionCard> {
   String correctAnswer = 'Loading...';
 
   void _showAnswer(TriviaQuestion triviaQuestion) {
-        print('The answer is: ${triviaQuestion.correctAnswer}');
+        //print('The answer is: ${triviaQuestion.correctAnswer}');
         setState(() {
           widget.session.displayingAnswer = true;
         });
@@ -51,7 +51,7 @@ class _QuestionCardState extends State<QuestionCard> {
         HeaderText('${widget.question.category}'),
         Text(
           '${widget.question.description}',
-          style: TextStyle(fontSize: 26),
+          style: TextStyle(fontSize: 26, color: Colors.amber),
           textAlign: TextAlign.center,
         )
       ],

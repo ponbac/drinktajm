@@ -16,6 +16,11 @@ class TriviaQuestion extends Question {
     Difficulty diff;
     int sipsBasedOnDiff = 0;
 
+    List<String> cleanedAnswers = new List<String>();
+    json['incorrect_answers'].cast<String>().forEach((answer) {
+      cleanedAnswers.add(_cleanTriviaText(answer));
+    });
+
     switch (json['difficulty'] as String) {
       case 'easy':
         diff = Difficulty.easy;
@@ -23,11 +28,11 @@ class TriviaQuestion extends Question {
         break;
       case 'medium':
         diff = Difficulty.medium;
-        sipsBasedOnDiff = 10;
+        sipsBasedOnDiff = 8;
         break;
       case 'hard':
         diff = Difficulty.hard;
-        sipsBasedOnDiff = 15;
+        sipsBasedOnDiff = 10;
         break;
     }
 
@@ -38,8 +43,8 @@ class TriviaQuestion extends Question {
         false,
         json['category'] as String,
         diff,
-        json['correct_answer'] as String,
-        json['incorrect_answers'].cast<String>());
+        _cleanTriviaText(json['correct_answer']),
+        cleanedAnswers);
   }
 
   List<String> getAllAnswers() {
@@ -75,6 +80,7 @@ class TriviaQuestion extends Question {
     text = text.replaceAll('&eacute;', 'é');
     text = text.replaceAll('&amp;', '&');
     text = text.replaceAll('&uuml;', 'ü');
+    text = text.replaceAll('&Uuml;', 'Ü');
 
     return text;
   }
