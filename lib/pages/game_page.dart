@@ -23,9 +23,8 @@ class GamePage extends StatefulWidget {
 
 class _GamePageState extends State<GamePage> {
   void _viewScore(BuildContext ctx, List<Player> playerList) {
-      Navigator.of(ctx)
-          .push(
-          MaterialPageRoute(builder: (_) => CurrentScore(playerList)));
+    Navigator.of(ctx)
+        .push(MaterialPageRoute(builder: (_) => CurrentScore(playerList)));
   }
 
   String _currentCategory = 'Not set!';
@@ -33,7 +32,6 @@ class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     Session session = widget.session;
-
 
     return Scaffold(
       body: FutureBuilder<List<Question>>(
@@ -64,20 +62,22 @@ class _GamePageState extends State<GamePage> {
                     });
                   },
                 ),
-              ),SizedBox(
+              ),
+              SizedBox(
                 height: 20,
-              ) ,Center(
+              ),
+              Center(
                   child: Ink(
-                    decoration: const ShapeDecoration(
-                      color: Color(0xFF1089ff),
-                      shape: CircleBorder(),
-                    ),
-                    child: IconButton(
-                      icon: Icon(Icons.supervisor_account),
-                      color: Colors.white,
-                      onPressed: () => _viewScore(context, session.playerList),
-                    ),
-                  )),
+                decoration: const ShapeDecoration(
+                  color: Color(0xFF1089ff),
+                  shape: CircleBorder(),
+                ),
+                child: IconButton(
+                  icon: Icon(Icons.supervisor_account),
+                  color: Colors.white,
+                  onPressed: () => _viewScore(context, session.playerList),
+                ),
+              )),
             ];
           } else {
             children = <Widget>[
@@ -88,7 +88,10 @@ class _GamePageState extends State<GamePage> {
               ),
               const Padding(
                 padding: EdgeInsets.only(top: 16),
-                child: Text('Laddar frågor...'),
+                child: Text(
+                  'Laddar frågor...',
+                  style: TextStyle(fontSize: 26, color: Colors.amber),
+                ),
               )
             ];
           }

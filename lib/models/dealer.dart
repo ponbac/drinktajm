@@ -37,7 +37,7 @@ class Dealer {
   List<Question> _allRegelQuestions = new List<Question>();
 
   Dealer(this._allQuestions) {
-    _testCategorySelector();
+    //_testCategorySelector();
 
     // fill decks
     _allQuestions.forEach((question) {
