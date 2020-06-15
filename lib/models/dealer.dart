@@ -8,11 +8,12 @@ class Dealer {
 
   // Relative probability values for each category
   static const Map<String, int> _categoryProbabilities = {
-    'KLUNKAR': 1,
-    'PEKLEKEN': 1,
-    'DUELL': 1,
-    'TRIVIA': 1,
-    'KATEGORI': 1
+    'KLUNKAR': 2,
+    'PEKLEKEN': 2,
+    'DUELL': 2,
+    'TRIVIA': 2,
+    'KATEGORI': 2,
+    'REGEL': 1
   };
 
   //static const int NMBR_OF_CATEGORIES = 5;
@@ -25,6 +26,7 @@ class Dealer {
   List<Question> _duellQuestions;
   List<Question> _triviaQuestions;
   List<Question> _kategoriQuestions;
+  List<Question> _regelQuestions;
 
   // lists that stores all questions for refilling game decks
   List<Question> _allKlunkarQuestions = new List<Question>();
@@ -32,9 +34,10 @@ class Dealer {
   List<Question> _allDuellQuestions = new List<Question>();
   List<Question> _allTriviaQuestions = new List<Question>();
   List<Question> _allKategoriQuestions = new List<Question>();
+  List<Question> _allRegelQuestions = new List<Question>();
 
   Dealer(this._allQuestions) {
-    //_testCategorySelector();
+    _testCategorySelector();
 
     // fill decks
     _allQuestions.forEach((question) {
@@ -54,6 +57,9 @@ class Dealer {
         case 'kategori':
           _allKategoriQuestions.add(question);
           break;
+        case 'regel':
+          _allRegelQuestions.add(question);
+          break;
         default:
           print('(${question.description}) do not have a valid category!');
       }
@@ -71,6 +77,7 @@ class Dealer {
     _duellQuestions = new List<Question>()..addAll(_allDuellQuestions);
     _triviaQuestions = new List<Question>()..addAll(_allTriviaQuestions);
     _kategoriQuestions = new List<Question>()..addAll(_allKategoriQuestions);
+    _regelQuestions = new List<Question>()..addAll(_allRegelQuestions);
   }
 
   void _shuffleAllDecks() {
@@ -79,6 +86,7 @@ class Dealer {
     _duellQuestions = _duellQuestions..shuffle();
     _triviaQuestions = _triviaQuestions..shuffle();
     _kategoriQuestions = _kategoriQuestions..shuffle();
+    _regelQuestions = _regelQuestions..shuffle();
   }
 
   Question nextQuestion() {
@@ -135,6 +143,15 @@ class Dealer {
 
         return _drawNextQuestion(_kategoriQuestions);
         break;
+      case 'regel':
+        if (_regelQuestions.length == 0) {
+          _regelQuestions = new List<Question>()
+            ..addAll(_allRegelQuestions);
+          _regelQuestions = _regelQuestions..shuffle();
+        }
+
+        return _drawNextQuestion(_regelQuestions);
+        break;
       default:
         print('$category is not a valid category!');
     }
@@ -175,6 +192,7 @@ class Dealer {
     int counter3 = 0;
     int counter4 = 0;
     int counter5 = 0;
+    int counter6 = 0;
 
     for (int i = 0; i < 1000; i++) {
       switch (_categorySelector().toLowerCase()) {
@@ -193,6 +211,9 @@ class Dealer {
         case 'kategori':
           counter5++;
           break;
+        case 'regel':
+          counter6++;
+          break;
         default:
           print('Something is not a valid category!');
       }
@@ -203,5 +224,6 @@ class Dealer {
     print('counter3 = $counter3');
     print('counter4 = $counter4');
     print('counter5 = $counter5');
+    print('counter6 = $counter6');
   }
 }

@@ -250,91 +250,121 @@
       "category": "Kategori",
       "description": "Bilmärken\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Fotbollsspelare\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Tecknade serier\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Sminkmärken\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Serier på Netflix\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Serier på HBO\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Klädesplagg\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Länder i Europa\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Länder i Asien\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Svenska städer\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Öl- och cidermärken\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Typer av alkohol\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Porrstjärnor\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Hundraser\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Färger\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
-      "guaranteed": true
+      "guaranteed": false
+    },
+    {
+      "category": "Regel",
+      "description": "[player1] och [player2] dricker [sips] klunk varje gång hen säger JA eller NEJ fram tills nästa regel.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category": "Regel",
+      "description": "[player1] och [player2] dricker nu med vänster hand fram tills nästa regel.\n[sips] klunk varje gång hen bryter mot regeln.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category": "Regel",
+      "description": "[player1] och [player2] sitter stilla på golvet fram tills nästa regel.\n[sips] klunkar varje gång hen ställer sig upp.",
+      "sips": 5,
+      "guaranteed": false
+    },
+    {
+      "category": "Regel",
+      "description": "[player1] börjar nu varje mening med \"Jag är inte rasist, MEN...\".\n[sips] klunkar varje gång hen bryter mot regeln.",
+      "sips": 2,
+      "guaranteed": false
+    },
+    {
+      "category": "Regel",
+      "description": "[player1] avslutar nu varje mening med \"... bara för att jag är så snygg.\".\n[sips] klunkar varje gång hen bryter mot regeln.",
+      "sips": 2,
+      "guaranteed": false
     }
   ]
 }

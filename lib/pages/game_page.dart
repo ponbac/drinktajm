@@ -28,6 +28,8 @@ class _GamePageState extends State<GamePage> {
           MaterialPageRoute(builder: (_) => CurrentScore(playerList)));
   }
 
+  String _currentCategory = 'Not set!';
+
   @override
   Widget build(BuildContext context) {
     Session session = widget.session;
@@ -46,7 +48,8 @@ class _GamePageState extends State<GamePage> {
             }
 
             Question currentQuestion = session.currentQuestion;
-            print('built widget');
+            _currentCategory = currentQuestion.category;
+            //print('built widget');
 
             children = <Widget>[
               QuestionCard(currentQuestion, session),
@@ -90,14 +93,25 @@ class _GamePageState extends State<GamePage> {
             ];
           }
 
-          return Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: children),
+          return Container(
+            decoration: _categoryBackgroundColor(),
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: children),
+            ),
           );
         },
       ),
     );
+  }
+
+  BoxDecoration _categoryBackgroundColor() {
+    if (_currentCategory == 'Regel') {
+      return new BoxDecoration(color: Colors.red);
+    }
+
+    return new BoxDecoration(color: Color(0xFF421b9b));
   }
 }
