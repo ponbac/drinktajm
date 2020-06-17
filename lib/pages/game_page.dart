@@ -6,6 +6,7 @@ import 'package:drinkinggame/resources/question_provider.dart';
 import 'package:drinkinggame/widgets/action_button.dart';
 import 'package:drinkinggame/widgets/header_text.dart';
 import 'package:drinkinggame/widgets/question_card.dart';
+import 'package:drinkinggame/constants.dart';
 
 import 'package:flutter/material.dart';
 
@@ -115,6 +116,6 @@ class _GamePageState extends State<GamePage> {
       return new BoxDecoration(color: Colors.red);
     }
 
-    return new BoxDecoration(color: Color(0xFF421b9b));
+    return new BoxDecoration(color: kBackgroundColor);
   }
 }

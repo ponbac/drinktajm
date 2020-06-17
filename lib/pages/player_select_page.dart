@@ -4,6 +4,7 @@ import 'package:drinkinggame/pages/game_page.dart';
 import 'package:drinkinggame/widgets/action_button.dart';
 import 'package:drinkinggame/widgets/header_text.dart';
 import 'package:flutter/material.dart';
+import 'package:drinkinggame/constants.dart';
 
 class PlayerSelect extends StatefulWidget {
   static const routeName = '/player_select';
@@ -37,7 +38,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
       body: Column(
         children: <Widget>[
           SizedBox(
-            height: 25,
+            height: 45,
           ),
           HeaderText('VÄLJ SPELARE'),
           Visibility(
@@ -47,7 +48,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
                 style: TextStyle(fontSize: 18, color: Colors.amber),
               )),
           SizedBox(
-            height: height * 0.60,
+            height: height * 0.55,
             child: ListView.builder(
                 itemCount: playerList.length,
                 itemBuilder: (context, index) {
@@ -61,12 +62,12 @@ class _PlayerSelectState extends State<PlayerSelect> {
           Center(
               child: Ink(
             decoration: const ShapeDecoration(
-              color: Color(0xFF1089ff),
+              color: kPrimaryColor,
               shape: CircleBorder(),
             ),
             child: IconButton(
               icon: Icon(Icons.add),
-              color: Colors.white,
+              color: kBackgroundColor,
               onPressed: () {
                 showDialog(
                     context: context,
@@ -126,7 +127,8 @@ class _PlayerSelectState extends State<PlayerSelect> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: RaisedButton(
-                    child: Text("ska supa!"),
+                    color: kPrimaryColor,
+                    child: Text("ska supa!", style: TextStyle(color: kBackgroundColor),),
                     onPressed: () {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();

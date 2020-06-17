@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: height * 0.049,
+                height: height * 0.009,
               ),
               Center(
                 child: IntrinsicWidth(
