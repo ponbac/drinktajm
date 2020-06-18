@@ -1,6 +1,7 @@
 import 'package:drinkinggame/models/player.dart';
 import 'package:drinkinggame/models/session.dart';
 import 'package:drinkinggame/pages/game_page.dart';
+import 'package:drinkinggame/pages/probability_selection_page.dart';
 import 'package:drinkinggame/widgets/action_button.dart';
 import 'package:drinkinggame/widgets/header_text.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,17 @@ class _PlayerSelectState extends State<PlayerSelect> {
     if (playerList.length > 1) {
       Navigator.of(ctx).push(
           MaterialPageRoute(builder: (_) => GamePage(new Session(playerList))));
+    }
+  }
+
+  void _startGameWithCustomCategoryP(
+      BuildContext ctx, Map<String, int> probabilities) {
+    Session session =
+        new Session(playerList, categoryProbabilities: probabilities);
+
+    if (playerList.length > 1) {
+      Navigator.of(ctx)
+          .push(MaterialPageRoute(builder: (_) => GamePage(session)));
     }
   }
 
@@ -55,7 +67,10 @@ class _PlayerSelectState extends State<PlayerSelect> {
                   return Center(
                       child: Text(
                     '${playerList.elementAt(index).name}',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40, color: Colors.amber),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                        color: Colors.amber),
                   ));
                 }),
           ),
@@ -77,13 +92,36 @@ class _PlayerSelectState extends State<PlayerSelect> {
               },
             ),
           )),
-          Container(
-            height: height * 0.06,
-            margin: EdgeInsets.only(top: 15),
-            child: ActionButton(
-              buttonTitle: 'Börja spela!',
-              onPress: () => _startGame(context),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(
+                height: height * 0.06,
+                margin: EdgeInsets.only(top: 15),
+                child: ActionButton(
+                  buttonTitle: 'Börja spela!',
+                  onPress: () => _startGame(context),
+                ),
+              ),
+              Container(
+                height: height * 0.06,
+                margin: EdgeInsets.only(top: 15),
+                child: ActionButton(
+                  buttonTitle: 'Nördknapp',
+                  onPress: () async {
+                    final prob = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProbabilitySelection(),
+                      ),
+                    );
+                    if (prob != null) {
+                      _startGameWithCustomCategoryP(context, prob);
+                    }
+                  },
+                ),
+              )
+            ],
           )
         ],
       ),
@@ -128,7 +166,10 @@ class _PlayerSelectState extends State<PlayerSelect> {
                   padding: const EdgeInsets.all(8.0),
                   child: RaisedButton(
                     color: kPrimaryColor,
-                    child: Text("ska supa!", style: TextStyle(color: kBackgroundColor),),
+                    child: Text(
+                      "ska supa!",
+                      style: TextStyle(color: kBackgroundColor),
+                    ),
                     onPressed: () {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();

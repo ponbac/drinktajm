@@ -18,8 +18,15 @@ class Session {
   bool displayingAnswer = false;
   List<Player> playerList;
 
-  Session(this.playerList) {
+  // TODO: Should not be here.
+  Map<String, int> categoryProbabilities;
+
+  Session(this.playerList, {this.categoryProbabilities}) {
     print('New session!');
+
+    if (categoryProbabilities != null) {
+      print('Custom category P!');
+    }
   }
 
   void nextQuestion() {
@@ -42,18 +49,21 @@ class Session {
       int nmbrOfPlayers = playerList.length;
       List<Player> playerListCopy = []..addAll(playerList);
 
-      Player randomPlayer1 = playerListCopy.elementAt(rng.nextInt(nmbrOfPlayers));
+      Player randomPlayer1 =
+          playerListCopy.elementAt(rng.nextInt(nmbrOfPlayers));
       playerListCopy.remove(randomPlayer1);
       questionText = questionText.replaceAll('[player1]', randomPlayer1.name);
 
       if (questionText.contains('[player2]') && nmbrOfPlayers >= 2) {
-        Player randomPlayer2 = playerListCopy.elementAt(rng.nextInt(nmbrOfPlayers - 1));
+        Player randomPlayer2 =
+            playerListCopy.elementAt(rng.nextInt(nmbrOfPlayers - 1));
         playerListCopy.remove(randomPlayer2);
         questionText = questionText.replaceAll('[player2]', randomPlayer2.name);
       }
 
       if (questionText.contains('[player3]') && nmbrOfPlayers >= 3) {
-        Player randomPlayer3 = playerListCopy.elementAt(rng.nextInt(nmbrOfPlayers - 2));
+        Player randomPlayer3 =
+            playerListCopy.elementAt(rng.nextInt(nmbrOfPlayers - 2));
         playerListCopy.remove(randomPlayer3);
         questionText = questionText.replaceAll('[player3]', randomPlayer3.name);
       }
@@ -79,16 +89,30 @@ class Session {
     }
 
     if (question is TriviaQuestion) {
-      return new TriviaQuestion(question.category, questionText, sips, guaranteed, question.triviaCategory, question.difficulty, question.correctAnswer, question.answers);
+      return new TriviaQuestion(
+          question.category,
+          questionText,
+          sips,
+          guaranteed,
+          question.triviaCategory,
+          question.difficulty,
+          question.correctAnswer,
+          question.answers);
     } else {
-      question = new NormalQuestion(question.category, questionText, sips, guaranteed);
+      question =
+          new NormalQuestion(question.category, questionText, sips, guaranteed);
     }
 
     return question;
   }
 
   set questionList(List<Question> list) {
-    dealer = new Dealer(list);
+    if (categoryProbabilities != null) {
+      dealer = new Dealer(list, categoryProbabilities: categoryProbabilities);
+    } else {
+      dealer = new Dealer(list);
+    }
+
     questionListLoaded = true;
 
     nextQuestion();

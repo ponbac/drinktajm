@@ -7,14 +7,7 @@ class Dealer {
   static final _rng = new Random();
 
   // Relative probability values for each category
-  static const Map<String, int> _categoryProbabilities = {
-    'KLUNKAR': 2,
-    'PEKLEKEN': 2,
-    'DUELL': 2,
-    'TRIVIA': 2,
-    'KATEGORI': 2,
-    'REGEL': 1
-  };
+  Map<String, int> categoryProbabilities;
 
   //static const int NMBR_OF_CATEGORIES = 5;
 
@@ -36,8 +29,19 @@ class Dealer {
   List<Question> _allKategoriQuestions = new List<Question>();
   List<Question> _allRegelQuestions = new List<Question>();
 
-  Dealer(this._allQuestions) {
+  Dealer(this._allQuestions, {this.categoryProbabilities}) {
     //_testCategorySelector();
+
+    if (categoryProbabilities == null) {
+      categoryProbabilities = {
+        'KLUNKAR': 4,
+        'PEKLEKEN': 4,
+        'DUELL': 3,
+        'TRIVIA': 3,
+        'KATEGORI': 4,
+        'REGEL': 2
+      };
+    }
 
     // fill decks
     _allQuestions.forEach((question) {
@@ -172,7 +176,7 @@ class Dealer {
   String _categorySelector() {
     int totalSum = 0;
 
-    _categoryProbabilities.forEach((key, value) {
+    categoryProbabilities.forEach((key, value) {
       totalSum += value;
     });
 
@@ -180,10 +184,10 @@ class Dealer {
     int sum = 0;
     int i = 0;
     while (sum < index) {
-      sum = sum + _categoryProbabilities.values.toList()[i++];
+      sum = sum + categoryProbabilities.values.toList()[i++];
     }
 
-    return _categoryProbabilities.keys.toList()[max(0, i-1)];
+    return categoryProbabilities.keys.toList()[max(0, i-1)];
   }
 
   void _testCategorySelector() {
