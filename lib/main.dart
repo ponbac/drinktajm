@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: kBackgroundColor,
         textTheme: TextTheme(
-          display1: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          headline4: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           button: TextStyle(color: kPrimaryColor),
-          headline:
+          headline5:
           TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
         ),
         inputDecorationTheme: InputDecorationTheme(

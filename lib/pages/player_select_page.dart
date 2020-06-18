@@ -57,7 +57,7 @@ class _PlayerSelectState extends State<PlayerSelect> {
               visible: playerList.length < 2,
               child: Text(
                 'Minst två spelare!',
-                style: TextStyle(fontSize: 18, color: Colors.amber),
+                style: TextStyle(fontSize: 18, color: Colors.red),
               )),
           SizedBox(
             height: height * 0.55,
@@ -109,14 +109,20 @@ class _PlayerSelectState extends State<PlayerSelect> {
                 child: ActionButton(
                   buttonTitle: 'Nördknapp',
                   onPress: () async {
-                    final prob = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProbabilitySelection(),
-                      ),
-                    );
-                    if (prob != null) {
-                      _startGameWithCustomCategoryP(context, prob);
+                    if (playerList.length > 1) {
+                      final prob = await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProbabilitySelection(),
+                        ),
+                      );
+                      if (prob != null) {
+                        _startGameWithCustomCategoryP(context, prob);
+                      } else {
+                        print('prob map is null!');
+                      }
+                    } else {
+                      print('not enough players to start!');
                     }
                   },
                 ),

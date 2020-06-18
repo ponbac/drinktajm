@@ -32,6 +32,7 @@ class Dealer {
   Dealer(this._allQuestions, {this.categoryProbabilities}) {
     //_testCategorySelector();
 
+    // default probabilites
     if (categoryProbabilities == null) {
       categoryProbabilities = {
         'KLUNKAR': 4,
