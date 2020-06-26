@@ -4,6 +4,10 @@ import 'package:wave/wave.dart';
 import 'package:wave/config.dart';
 
 class WaveBackground extends StatelessWidget {
+  final bool isRegel;
+
+  WaveBackground({this.isRegel = false});
+
   @override
   Widget build(BuildContext context) {
     return WaveWidget(
@@ -19,11 +23,7 @@ class WaveBackground extends StatelessWidget {
             Color.fromRGBO(125, 170, 206, 1),
             Color.fromRGBO(172, 182, 219, 0.7)
           ],
-          [
-            Colors.black54,
-            Colors.black45,
-            Colors.black38
-          ],
+          normalColors,
         ],
         durations: [19440, 10800, 6000],
         heightPercentages: [0.03, 0.01, 0.02],
@@ -32,7 +32,11 @@ class WaveBackground extends StatelessWidget {
       ),
       size: Size(double.infinity, double.infinity),
       waveAmplitude: 25,
-      backgroundColor: kBackgroundColor,
+      backgroundColor: isRegel? Colors.amber : kBackgroundColor,
     );
+  }
+
+  List<Color> get normalColors {
+    return [Colors.black54, Colors.black45, Colors.black38.withOpacity(0.7)];
   }
 }

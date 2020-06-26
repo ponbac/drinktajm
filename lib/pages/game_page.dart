@@ -29,6 +29,18 @@ class _GamePageState extends State<GamePage> {
         .push(MaterialPageRoute(builder: (_) => CurrentScore(playerList)));
   }
 
+  bool get currentQuestionIsRegel {
+    if (widget.session == null) {
+      return false;
+    }
+
+    if (widget.session.currentQuestion == null) {
+      return false;
+    }
+
+    return widget.session.currentQuestion.category == 'Regel' ? true : false;
+  }
+
   String _currentCategory = 'Not set!';
 
   @override
@@ -38,7 +50,7 @@ class _GamePageState extends State<GamePage> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          WaveBackground(),
+          currentQuestionIsRegel ? WaveBackground(isRegel: true) : WaveBackground(),
           FutureBuilder<List<Question>>(
             future: widget.loadQuestions,
             builder:
@@ -115,13 +127,5 @@ class _GamePageState extends State<GamePage> {
         ],
       ),
     );
-  }
-
-  BoxDecoration _categoryBackgroundColor() {
-    if (_currentCategory == 'Regel') {
-      return new BoxDecoration(color: Colors.red);
-    }
-
-    return new BoxDecoration(color: kBackgroundColor);
   }
 }
