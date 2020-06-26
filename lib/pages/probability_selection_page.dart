@@ -33,7 +33,18 @@ class ProbabilitySelection extends StatelessWidget {
     return totalSum == 0 ? true : false;
   }
 
-  Map<String, int> _createProbabilityMap() {
+  Map<String, int> _createProbabilityMap({bool empty = false}) {
+    if (empty) {
+      return {
+        'KLUNKAR': 4,
+        'PEKLEKEN': 4,
+        'DUELL': 3,
+        'TRIVIA': 3,
+        'KATEGORI': 4,
+        'REGEL': 2
+      };
+    }
+
     return {
       'KLUNKAR': _cleanControllerText(_textControllerKlunkar),
       'PEKLEKEN': _cleanControllerText(_textControllerPekleken),
@@ -94,6 +105,8 @@ class ProbabilitySelection extends StatelessWidget {
               onPress: () {
                 if (!_allFieldsEmpty()) {
                   Navigator.pop(context, _createProbabilityMap());
+                } else {
+                  Navigator.pop(context, _createProbabilityMap(empty: true));
                 }
               },
             ),
