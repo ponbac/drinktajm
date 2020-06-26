@@ -9,12 +9,17 @@ Next level drinking game
 ## Deploying to Firebase Hosting
 
 Install Firebase-CLI and login:
+
 `npm install -g firebase-tools`
+
 `firebase login --no-localhost`
+
 `firebase init`
 
 Then:
+
 `flutter build web`
+
 `firebase deploy`
 
 ## Getting Started
