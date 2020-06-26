@@ -2,6 +2,10 @@
 
 Next level drinking game
 
+## Running web version on Gitpod
+
+'flutter run -d web-server --web-port=8080 --web-hostname=0.0.0.0'
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
