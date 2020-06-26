@@ -55,6 +55,12 @@
       "guaranteed": false
     },
     {
+      "category": "Klunkar",
+      "description": "Den spelare som sitter längst ifrån [player1] dricker [sips] klunkar.",
+      "sips": 5,
+      "guaranteed": false
+    },
+    {
       "category": "Pekleken",
       "description": "Vem i rummet är mest vältränad?\n[sips] klunk per pek.",
       "sips": 1,
@@ -338,12 +344,6 @@
     },
     {
       "category": "Kategori",
-      "description": "Klädesplagg\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
-      "sips": 6,
-      "guaranteed": false
-    },
-    {
-      "category": "Kategori",
       "description": "Länder i Europa\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
@@ -356,37 +356,121 @@
     },
     {
       "category": "Kategori",
-      "description": "Svenska städer\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "description": "Svenska städer.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
     {
       "category": "Kategori",
-      "description": "Öl- och cidermärken\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "description": "Öl- och cidermärken.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
     {
       "category": "Kategori",
-      "description": "Typer av alkohol\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "description": "Typer av alkohol.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
     {
       "category": "Kategori",
-      "description": "Porrstjärnor\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "description": "Porrstjärnor.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
     {
       "category": "Kategori",
-      "description": "Hundraser\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "description": "Hundraser.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
     {
       "category": "Kategori",
-      "description": "Färger\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "description": "Färger.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Hockeyspelare.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Basketspelare.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Melodifestivalen-låtar.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Smaker på marabouchoklad.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Djur med fyra ben.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Lag i fotbollsallsvenskan.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Spelkonsoler.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Basketlag.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Svenska rappare.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Komiker.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Elektronikmärken.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Ämnen i grundskolan.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Karaktärer i Harry Potter.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Karaktärer i Star Wars.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
