@@ -61,6 +61,18 @@
       "guaranteed": false
     },
     {
+      "category": "Klunkar",
+      "description": "Alla blondiner dricker [sips] klunkar.",
+      "sips": 4,
+      "guaranteed": false
+    },
+    {
+      "category": "Klunkar",
+      "description": "Alla brunetter dricker [sips] klunkar.",
+      "sips": 4,
+      "guaranteed": false
+    },
+    {
       "category": "Pekleken",
       "description": "Vem i rummet är mest vältränad?\n[sips] klunk per pek.",
       "sips": 1,
@@ -243,6 +255,12 @@
     {
       "category": "Pekleken",
       "description": "Vem kommer hitta snyggaste livspartnern?\n[sips] klunk per pek.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
+      "category": "Pekleken",
+      "description": "Vem är den största gamern?\n[sips] klunk per pek.",
       "sips": 1,
       "guaranteed": false
     },
@@ -465,6 +483,12 @@
     {
       "category": "Kategori",
       "description": "Karaktärer i Harry Potter.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Läsksorter\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },

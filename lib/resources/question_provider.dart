@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 // Gets questions from opentdb for trivia and self written from github json
 Future<List<Question>> getQuestionsFromJson() async {
-  final String url = 'https://ponbac.github.io/json.html';
+  final String url = 'https://drinktajm.web.app/questions.html';
   final String triviaUrl = 'https://opentdb.com/api.php?amount=50&type=multiple';
 
   var raw = await http.get(url);
