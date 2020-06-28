@@ -1,4 +1,5 @@
 import 'package:drinkinggame/pages/game_page.dart';
+import 'package:drinkinggame/pages/one_vs_one_page.dart';
 import 'package:drinkinggame/pages/player_select_page.dart';
 import 'package:drinkinggame/pages/home_page.dart';
 import 'package:drinkinggame/pages/secret_page.dart';
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
       routes: {
         //GamePage.routeName: (ctx) => GamePage(Session s),
         PlayerSelect.routeName: (ctx) => PlayerSelect(),
-        SecretPage.routeName: (ctx) => SecretPage()
+        SecretPage.routeName: (ctx) => SecretPage(),
+        OneVsOne.routeName: (ctx) => OneVsOne()
       },
     );
   }
