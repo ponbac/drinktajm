@@ -1,6 +1,6 @@
 # drinkinggame
 
-Next level drinking game and my first real Flutter application.
+Next level drinking game and my first real Flutter application (almost all questions are written in Swedish).
 
 [Web version](https://drinktajm.web.app/#/), looks a little bit worse than the iOS and Android versions.
 
