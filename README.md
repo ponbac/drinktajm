@@ -2,7 +2,7 @@
 
 Next level drinking game and my first real Flutter application.
 
-[Web version](https://www.drinktajm.web.app), looks a little bit worse than the iOS and Android versions.
+[Web version](https://drinktajm.web.app/#/), looks a little bit worse than the iOS and Android versions.
 
 ## Running web version on Gitpod
 
