@@ -73,6 +73,12 @@
       "guaranteed": false
     },
     {
+      "category": "Klunkar",
+      "description": "[player1] är immun i [sips] klunkar.\nDe kommande [sips] klunkar [player1] får behöver inte drickas.",
+      "sips": 8,
+      "guaranteed": false
+    },
+    {
       "category": "Pekleken",
       "description": "Vem i rummet är mest vältränad?\n[sips] klunk per pek.",
       "sips": 1,
@@ -265,6 +271,12 @@
       "guaranteed": false
     },
     {
+      "category": "Pekleken",
+      "description": "Vem tror sig vara smartare än den är?\n[sips] klunk per pek.",
+      "sips": 1,
+      "guaranteed": false
+    },
+    {
       "category": "Duell",
       "description": "[player1] vs [player2].\nFlest armhävningar vinner.\nFörloraren tar [sips] klunkar.",
       "sips": 8,
@@ -321,6 +333,18 @@
     {
       "category": "Duell",
       "description": "[player1] vs [player2].\nDen som snabbast tar i en annan spelares telefon vinner.\nFörloraren tar [sips] klunkar.",
+      "sips": 8,
+      "guaranteed": false
+    },
+    {
+      "category": "Duell",
+      "description": "[player1] vs [player2].\nDen med lägst inkomst vinner.\nFörloraren tar [sips] klunkar.",
+      "sips": 8,
+      "guaranteed": false
+    },
+    {
+      "category": "Duell",
+      "description": "[player1] vs [player2].\nDen som klarar av att sitta i 90 grader mot en vägg längst vinner.\nFörloraren tar [sips] klunkar.",
       "sips": 8,
       "guaranteed": false
     },
@@ -488,13 +512,31 @@
     },
     {
       "category": "Kategori",
-      "description": "Läsksorter\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "description": "Läsksorter.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
     {
       "category": "Kategori",
       "description": "Karaktärer i Star Wars.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Superhjätar.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Kvinnliga svenska idrottare.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "sips": 6,
+      "guaranteed": false
+    },
+    {
+      "category": "Kategori",
+      "description": "Gymnasielinjer\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
@@ -524,12 +566,6 @@
     },
     {
       "category": "Regel",
-      "description": "[player1] får inte kolla någon i ögonen fram tills nästa regel.\n[sips] klunkar varje gång hen bryter mot regeln.",
-      "sips": 2,
-      "guaranteed": false
-    },
-    {
-      "category": "Regel",
       "description": "Ingen får kolla [player1] i ögonen fram tills nästa regel.\n[sips] klunkar varje gång någon bryter mot regeln.",
       "sips": 2,
       "guaranteed": false
@@ -544,6 +580,18 @@
       "category": "Regel",
       "description": "Dags att vara social, ingen får från och med nu röra sin mobiltelefon fram tills nästa regel.\nVarje gång någon bryter mot regeln dricker den [sips] klunkar.",
       "sips": 4,
+      "guaranteed": false
+    },
+    {
+      "category": "Regel",
+      "description": "Ajdå, från och med nu dubblas alla klunkar fram tills nästa regel.\nLycka till!",
+      "sips": 0,
+      "guaranteed": false
+    },
+    {
+      "category": "Regel",
+      "description": "[player1] och de två spelare som sitter närmast honom dricker dubbla klunkar fram tills nästa regel.",
+      "sips": 0,
       "guaranteed": false
     }
   ]
