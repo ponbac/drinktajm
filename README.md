@@ -1,8 +1,10 @@
 # drinkinggame
 
-Next level drinking game and my first real Flutter application (almost all questions are written in Swedish).
+Next level drinking game
 
-[Web version](https://drinktajm.web.app/#/), looks a little bit worse than the iOS and Android versions.
+## Copying questions to Firebase
+
+`cp assets/questions.json build/web/questions.html`
 
 ## Running web version on Gitpod
 
