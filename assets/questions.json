@@ -524,7 +524,7 @@
     },
     {
       "category": "Kategori",
-      "description": "Superhjätar.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
+      "description": "Superhjältar.\nFörloraren tar [sips] klunkar.\n[player1] börjar.",
       "sips": 6,
       "guaranteed": false
     },
